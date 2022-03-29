@@ -1,21 +1,11 @@
-//First I need a module
 
-const express = require('express');
+const http = require('http');
 
-//Express initialize
+let app = http.createServer((req, res) => {
+  
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World!\n');
+});
 
-const app = express();
-
-const port = 8000;
-
-app.listen(port, ()=> {
-    console.log('lsiten port 8000');
-})
-
-//Create the api
-
-app.get('/Hello_World', (req, res)=>{
-
-    res.send('Hello World');
-
-}) 
+app.listen(8080, '127.0.0.1');
+console.log('Node server running on port 8080');
